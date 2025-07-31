@@ -3,464 +3,931 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch Juanito - Menú 100% Natural</title>
+    <title>Menú Lunch Juanito 100% Natural</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-color: #8B4513; /* Café terroso */
-            --secondary-color: #228B22; /* Verde natural */
-            --accent-color: #FF8C00; /* Naranja cálido */
-            --light-color: #FFF8DC; /* Beige claro */
-            --dark-color: #333;
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #f39c12;
+            --light: #f9f5f0;
+            --dark: #333;
+            --gray: #666;
+            --white: #fff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-color);
-            color: var(--dark-color);
             line-height: 1.6;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-style: italic;
-            color: var(--light-color);
+            color: var(--dark);
+            background-color: var(--light);
+            background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .menu-section {
-            margin-bottom: 3rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
         
-        .section-title {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            margin: 0;
-            font-size: 1.5rem;
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
         
-        .menu-items {
-            padding: 1.5rem;
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+        
+        .menu-tabs {
+            display: flex;
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+            overflow-x: auto;
+        }
+        
+        .menu-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .menu-tab:hover, .menu-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .menu-sections {
+            padding: 20px;
+        }
+        
+        .menu-section {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-header h3 {
+            font-size: 1.4em;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .section-header i {
+            transition: transform 0.3s ease;
+        }
+        
+        .section-content {
+            background-color: var(--white);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        
+        .section-content.show {
+            max-height: 2000px;
+            padding: 20px;
         }
         
         .menu-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px dashed #ddd;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            transition: all 0.3s ease;
         }
         
         .menu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
             border-bottom: none;
         }
         
+        .menu-item:hover {
+            transform: translateX(5px);
+        }
+        
         .item-name {
+            flex: 2;
             font-weight: 500;
+            position: relative;
+            padding-left: 15px;
         }
         
-        .item-price {
-            color: var(--accent-color);
-            font-weight: bold;
+        .item-name::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
         }
         
-        .note {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 1rem;
+        .item-description {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-top: 5px;
             font-style: italic;
         }
         
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+        .item-price {
+            flex: 1;
+            text-align: right;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1em;
         }
         
-        .hours {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+        .note {
+            font-style: italic;
+            color: var(--gray);
+            font-size: 0.9em;
+            text-align: center;
+            margin: 15px 0 5px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: left;
+            padding: 12px;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-container {
+            padding: 15px 20px;
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 1em;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+            background-size: 20px;
+            padding-left: 45px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--dark);
+            color: var(--white);
+            font-size: 0.9em;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-icon {
+            color: var(--white);
+            font-size: 1.5em;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
         }
         
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
+            .menu-tabs {
+                flex-wrap: wrap;
             }
             
-            .menu-item {
-                flex-direction: column;
+            .menu-tab {
+                padding: 10px 15px;
+                font-size: 0.9em;
             }
             
-            .item-price {
-                margin-top: 0.25rem;
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">Lunch Juanito</div>
-            <div class="tagline">100% Natural</div>
-        </div>
-    </header>
-    
     <div class="container">
-        <h1 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Nuestro Menú</h1>
+        <header>
+            <h1>MENÚ</h1>
+            <h2>LUNCH JUANITO 100% NATURAL</h2>
+            <p class="header-subtitle">DESAYUNOS DE 8AM A 1PM</p>
+        </header>
         
-        <!-- Sección de Desayunos -->
-        <div class="menu-section">
-            <h2 class="section-title">Desayunos</h2>
-            <div class="menu-items">
-                <h3 style="color: var(--secondary-color); margin-top: 0;">HUEVOS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Divorciados</span>
-                    <span class="item-price">$75</span>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar en el menú...">
+        </div>
+        
+        <div class="menu-tabs">
+            <div class="menu-tab active" data-tab="desayunos">Desayunos</div>
+            <div class="menu-tab" data-tab="tortas">Tortas</div>
+            <div class="menu-tab" data-tab="sandwiches">Sandwiches</div>
+            <div class="menu-tab" data-tab="bebidas">Bebidas</div>
+            <div class="menu-tab" data-tab="otros">Otros</div>
+        </div>
+        
+        <div class="menu-sections">
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>HUEVOS</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Rancheros</span>
-                    <span class="item-price">$75</span>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Divorciados</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Rancheros</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con jamón</div>
+                        </div>
+                        <span class="item-price">$70</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con salchicha</div>
+                        </div>
+                        <span class="item-price">$70</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con chorizo</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">A la mexicana</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <p class="note">INGREDIENTE EXTRA $15 C/U</p>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Con jamón</span>
-                    <span class="item-price">$70</span>
+            </div>
+            
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>OMELETTE</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Con salchicha</span>
-                    <span class="item-price">$70</span>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Champiñones</div>
+                        </div>
+                        <span class="item-price">$85</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Chorizo</div>
+                        </div>
+                        <span class="item-price">$85</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Espinacas</div>
+                        </div>
+                        <span class="item-price">$85</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Jamón</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Salchicha</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Con chorizo</span>
-                    <span class="item-price">$80</span>
+            </div>
+            
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>MOLLETES</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">A la mexicana</span>
-                    <span class="item-price">$75</span>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con milanesa</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con chorizo</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con jamón</div>
+                        </div>
+                        <span class="item-price">$70</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con salchicha</div>
+                        </div>
+                        <span class="item-price">$70</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Hawaiana</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
                 </div>
-                <p class="note">Ingrediente extra $15 c/u</p>
+            </div>
+            
+            <div class="menu-section" data-category="tortas">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>TORTAS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Cubana (jamón, salchicha, milanesa, longaniza, queso blanco y amarillo)</div>
+                        </div>
+                        <span class="item-price">$95</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Salchicha</div>
+                        </div>
+                        <span class="item-price">$50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Jamón con queso amarillo</div>
+                        </div>
+                        <span class="item-price">$50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Huevo</div>
+                        </div>
+                        <span class="item-price">$60</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Milanesa con salsa de chicharrón</div>
+                        </div>
+                        <span class="item-price">$70</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="sandwiches">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>SANDWICH</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content show">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Jamón de Pavo, Queso Panela, lechuga y jitomate</div>
+                        </div>
+                        <span class="item-price">$50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Ensalada Rusa, pollo deshebrado, verduras y mayonesa</div>
+                        </div>
+                        <span class="item-price">$55</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Club sandwich (jamón de pavo, queso amarillo, ensalada de pollo, papas a la francesa)</div>
+                        </div>
+                        <span class="item-price">$120</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="sandwiches">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>PAN OROWEAT</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Pechuga de pavo, queso panela, lechuga, pepino y germen de alfalfa</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Pechuga de pollo asada, lechuga, jitomate, pepino y zanahoria</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Sincronizada. 3 piezas (Queso, manchego y jamón)</div>
+                        </div>
+                        <span class="item-price">$45</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>CHILAQUILES VERDES</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con pollo</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con huevo estrellado</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con milanesa</div>
+                        </div>
+                        <span class="item-price">$90</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con chorizo</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <p class="note">INGREDIENTE EXTRA $15 C/U</p>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>ENCHILADAS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Verdes c/ pollo</div>
+                        </div>
+                        <span class="item-price">$75</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Enfrijoladas con pollo</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Enfrijoladas con chorizo</div>
+                        </div>
+                        <span class="item-price">$110</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Verdes gratinadas (manchego, con pollo o chorizo)</div>
+                        </div>
+                        <span class="item-price">$80</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="otros">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>ENSALADAS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Lechuga, zanahoria, pepino y manzana (con proteína: pechuga de pollo asada)</div>
+                        </div>
+                        <span class="item-price">$120</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" data-category="bebidas">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>JUGOS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jugos</th>
+                                <th>Chico</th>
+                                <th>Grande</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Naranja</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Zanahoria</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Betabel/Zanahoria</td>
+                                <td>$40</td>
+                                <td>$50</td>
+                            </tr>
+                            <tr>
+                                <td>Zanahoria/Naranja</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Zanahoria/Betabel/Naranja</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Fresa</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Avena/Jengibre</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Avena/Fresa y Arandanos</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Manzana/Nuez/Avena y Almendras</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Nopal/Apio/Perejil/Linaza/Piña</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="two-column">
+                <div class="column">
+                    <div class="menu-section" data-category="bebidas">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3>ESQUIMOS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Rompope</div>
+                                </div>
+                                <span class="item-price">$50</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Nuez</div>
+                                </div>
+                                <span class="item-price">$50</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">De chocolate</div>
+                                </div>
+                                <span class="item-price">$50</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Coco</div>
+                                </div>
+                                <span class="item-price">$50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">OMELETTE</h3>
-                <div class="menu-item">
-                    <span class="item-name">Champiñones</span>
-                    <span class="item-price">$85</span>
+                <div class="column">
+                    <div class="menu-section" data-category="bebidas">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3>REFRESCOS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Refrescos</div>
+                                </div>
+                                <span class="item-price">$25</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Pan dulce</div>
+                                </div>
+                                <span class="item-price">$15</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Chorizo</span>
-                    <span class="item-price">$85</span>
+            </div>
+            
+            <div class="two-column">
+                <div class="column">
+                    <div class="menu-section" data-category="bebidas">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3>LICUADOS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Fresa</div>
+                                </div>
+                                <span class="item-price">$45</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Manzana</div>
+                                </div>
+                                <span class="item-price">$45</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Plátano</div>
+                                </div>
+                                <span class="item-price">$45</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Chocomilk</div>
+                                </div>
+                                <span class="item-price">$45</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Papaya</div>
+                                </div>
+                                <span class="item-price">$45</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Espinacas</span>
-                    <span class="item-price">$85</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Jamón</span>
-                    <span class="item-price">$80</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Salchicha</span>
-                    <span class="item-price">$80</span>
-                </div>
-                <p class="note">Ingrediente extra $15 c/u</p>
                 
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">MOLLETES</h3>
-                <div class="menu-item">
-                    <span class="item-name">Con milanesa</span>
-                    <span class="item-price">$75</span>
+                <div class="column">
+                    <div class="menu-section" data-category="otros">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3>OTROS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Bisquet con mantequilla y mermelada de fresa</div>
+                                </div>
+                                <span class="item-price">$25</span>
+                            </div>
+                            <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Plato con fruta</div>
+                                </div>
+                                <span class="item-price">$35</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Con chorizo</span>
-                    <span class="item-price">$75</span>
+            </div>
+            
+            <div class="menu-section" data-category="bebidas">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3>CAFÉ</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="menu-item">
-                    <span class="item-name">Con jamón</span>
-                    <span class="item-price">$70</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Con salchicha</span>
-                    <span class="item-price">$70</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Hawaiiana</span>
-                    <span class="item-price">$75</span>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Americano</div>
+                        </div>
+                        <span class="item-price">$35</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="item-name">Con leche</div>
+                        </div>
+                        <span class="item-price">$40</span>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Sección de Tortas -->
-        <div class="menu-section">
-            <h2 class="section-title">Tortas</h2>
-            <div class="menu-items">
-                <div class="menu-item">
-                    <span class="item-name">Cubana (jamón, salchicha, milanesa, longaniza, queso blanco y amarillo)</span>
-                    <span class="item-price">$85</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Salchicha</span>
-                    <span class="item-price">$45</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Jamón con queso amarillo</span>
-                    <span class="item-price">$50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Frijoles con chorizo</span>
-                    <span class="item-price">$50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Huevo</span>
-                    <span class="item-price">$50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Mole con pollo</span>
-                    <span class="item-price">$50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Milanesa con salsa de chicharrón</span>
-                    <span class="item-price">$60</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">Pan integral</h3>
-                <div class="menu-item">
-                    <span class="item-name">Jamón de Pavo, Queso Panela, lechuga y jitomate</span>
-                    <span class="item-price">$45</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Ensalada Rusa, pollo deshebrado, verduras y mayonesa</span>
-                    <span class="item-price">$45</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">PAN OROWEAT</h3>
-                <div class="menu-item">
-                    <span class="item-name">Pechuga de pavo, queso panela, lechuga, pepino y germen de alfalfa</span>
-                    <span class="item-price">$70</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Pechuga de pollo asada, lechuga, jitomate, pepino y zanahoria</span>
-                    <span class="item-price">$45</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Sincronizada. 3 piezas (Queso, manchego y jamón)</span>
-                    <span class="item-price">$45</span>
-                </div>
+        <footer>
+            <p>© 2023 Lunch Juanito 100% Natural - Todos los derechos reservados</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             </div>
-        </div>
-        
-        <!-- Sección de Chilaquiles y Enchiladas -->
-        <div class="menu-section">
-            <h2 class="section-title">Especialidades</h2>
-            <div class="menu-items">
-                <h3 style="color: var(--secondary-color); margin-top: 0;">CHILAQUILES VERDES</h3>
-                <div class="menu-item">
-                    <span class="item-name">Con pollo</span>
-                    <span class="item-price">$75</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Con huevo estrellado</span>
-                    <span class="item-price">$75</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Con milanesa</span>
-                    <span class="item-price">$90</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Con chorizo</span>
-                    <span class="item-price">$80</span>
-                </div>
-                <p class="note">Ingrediente extra $15 c/u</p>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">ENCHILADAS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Verdes gratinadas c/ pollo</span>
-                    <span class="item-price">$75</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Mole con pollo</span>
-                    <span class="item-price">$80</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Enfrijoladas con pollo</span>
-                    <span class="item-price">$75</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Enfrijoladas con chorizo</span>
-                    <span class="item-price">$80</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Verdes gratinadas (manchego, con pollo o chorizo)</span>
-                    <span class="item-price">$85</span>
-                </div>
-                <p class="note">Ingrediente extra $15 c/u</p>
-            </div>
-        </div>
-        
-        <!-- Sección de Bebidas -->
-        <div class="menu-section">
-            <h2 class="section-title">Bebidas</h2>
-            <div class="menu-items">
-                <h3 style="color: var(--secondary-color); margin-top: 0;">JUGOS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Naranja</span>
-                    <span class="item-price">40</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Zanahoria</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Betabel/Zanahoria</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Zanahoria/Naranja</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Zanahoria/Betabel/Naranja</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Naranja/Piña/Fresa</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Naranja/Piña/Avena/Jengibre</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Naranja/Piña/Avena/Fresa y Arandanos</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Manzana/Nuez/Avena y Almendras</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Naranja/Nopal/Apio/Perejil/Linaza/Piña</span>
-                    <span class="item-price">-</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">ESQUIMOS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Rompope</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Nuez</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">De chocolate</span>
-                    <span class="item-price">-</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">LICUADOS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Fresa</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Manzana</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Platano</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Chocomilk</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Papaya</span>
-                    <span class="item-price">-</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">CAFÉ</h3>
-                <div class="menu-item">
-                    <span class="item-name">Americano</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Con leche</span>
-                    <span class="item-price">-</span>
-                </div>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 1.5rem;">REFRESCOS</h3>
-                <div class="menu-item">
-                    <span class="item-name">Coca cola de lata</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Coca cola ligth de lata</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Coca cola sin azucar</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Fresca de lata</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Yoli de lata</span>
-                    <span class="item-price">-</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Sección de Postres -->
-        <div class="menu-section">
-            <h2 class="section-title">Postres</h2>
-            <div class="menu-items">
-                <h3 style="color: var(--secondary-color); margin-top: 0;">PAN DULCE</h3>
-                <div class="menu-item">
-                    <span class="item-name">Bisquet con mantequilla y mermelada de fresa</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Pan dulce pza</span>
-                    <span class="item-price">-</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Plato con fruta</span>
-                    <span class="item-price">-</span>
-                </div>
-            </div>
-        </div>
+        </footer>
     </div>
     
-    <footer>
-        <div class="container">
-            <div class="hours">Horario: Desayunos de 8:00 AM a 12:00 PM</div>
-            <div>© 2023 Lunch Juanito 100% Natural - Todos los derechos reservados</div>
-        </div>
-    </footer>
+    <script>
+        // Función para alternar secciones desplegables
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('show');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Función para filtrar por pestañas
+        const tabs = document.querySelectorAll('.menu-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remover clase active de todas las pestañas
+                tabs.forEach(t => t.classList.remove('active'));
+                // Agregar clase active a la pestaña clickeada
+                tab.classList.add('active');
+                
+                // Obtener la categoría a mostrar
+                const category = tab.getAttribute('data-tab');
+                
+                // Mostrar/ocultar secciones según la categoría
+                const sections = document.querySelectorAll('.menu-section');
+                sections.forEach(section => {
+                    if (category === 'all' || section.getAttribute('data-category') === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Función para búsqueda
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const items = document.querySelectorAll('.item-name');
+            
+            items.forEach(item => {
+                const menuItem = item.closest('.menu-item');
+                const text = item.textContent.toLowerCase();
+                
+                if (text.includes(searchTerm)) {
+                    menuItem.style.display = 'flex';
+                } else {
+                    menuItem.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
