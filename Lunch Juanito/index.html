@@ -27,7 +27,7 @@
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
-            background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlw=1350&q=80');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -59,8 +59,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.15;
+            /* Reemplaza esta URL con la imagen de tu logo */
+            background: url('lunch juanito.jpeg') center/cover;
+            opacity: 0.3; /* Ajusta la opacidad según necesites */
             z-index: 0;
         }
         
@@ -234,6 +235,13 @@
         td {
             padding: 10px;
             border-bottom: 1px solid #eee;
+            text-align: left; /* Alineación izquierda para los precios */
+        }
+        
+        /* Estilo específico para las columnas de precios en la tabla de jugos */
+        td:nth-child(2), td:nth-child(3) {
+            text-align: left;
+            white-space: nowrap; /* Evita que los precios se dividan en varias líneas */
         }
         
         tr:hover {
@@ -321,6 +329,24 @@
             h2 {
                 font-size: 1.4em;
             }
+            
+            /* Ajustes específicos para la tabla de jugos en móviles */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            td, th {
+                min-width: 100px; /* Asegura que las celdas tengan suficiente espacio */
+            }
+            
+            /* Ajuste adicional para los precios en móviles */
+            .item-price {
+                flex: 0 0 80px; /* Ancho fijo para los precios */
+                text-align: left;
+                padding-left: 10px;
+            }
         }
     </style>
 </head>
@@ -329,7 +355,7 @@
         <header>
             <h1>MENÚ</h1>
             <h2>LUNCH JUANITO 100% NATURAL</h2>
-            <p class="header-subtitle">DESAYUNOS DE 8AM A 1PM</p>
+            <p class="header-subtitle">DESAYUNOS DE 8AM A 2PM</p>
         </header>
         
         <div class="search-container">
@@ -661,13 +687,13 @@
                         <tbody>
                             <tr>
                                 <td>Naranja</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Zanahoria</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Betabel/Zanahoria</td>
@@ -676,38 +702,38 @@
                             </tr>
                             <tr>
                                 <td>Zanahoria/Naranja</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Zanahoria/Betabel/Naranja</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Naranja/Piña/Fresa</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Naranja/Piña/Avena/Jengibre</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Naranja/Piña/Avena/Fresa y Arandanos</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Manzana/Nuez/Avena y Almendras</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                             <tr>
                                 <td>Naranja/Nopal/Apio/Perejil/Linaza/Piña</td>
-                                <td></td>
-                                <td></td>
+                                <td>$40</td>
+                                <td>$50</td>
                             </tr>
                         </tbody>
                     </table>
@@ -762,12 +788,6 @@
                                     <div class="item-name">Refrescos</div>
                                 </div>
                                 <span class="item-price">$25</span>
-                            </div>
-                            <div class="menu-item">
-                                <div>
-                                    <div class="item-name">Pan dulce</div>
-                                </div>
-                                <span class="item-price">$15</span>
                             </div>
                         </div>
                     </div>
@@ -834,6 +854,13 @@
                                     <div class="item-name">Plato con fruta</div>
                                 </div>
                                 <span class="item-price">$35</span>
+                    
+                            </div>
+                             <div class="menu-item">
+                                <div>
+                                    <div class="item-name">Pan dulce</div>
+                                </div>
+                                <span class="item-price">$15</span>
                             </div>
                         </div>
                     </div>
