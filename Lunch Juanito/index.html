@@ -10,16 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7E9B7E;
-            --primary-light: #A3C1A3;
-            --primary-dark: #5A7A5A;
-            --secondary: #E6D3B8;
-            --accent: #D4B483;
-            --light: #FAF7F2;
-            --dark: #3A3A3A;
-            --gray: #8A8A8A;
+            --primary: #D35400;
+            --primary-light: #E67E22;
+            --primary-dark: #B03A0E;
+            --secondary: #F39C12;
+            --accent: #E74C3C;
+            --light: #FFF5EB;
+            --dark: #2C2C2C;
+            --gray: #7F8C8D;
             --white: #FFFFFF;
-            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow: rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -32,10 +32,10 @@
             font-family: 'Quicksand', sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            background-color: #F8F5F0;
+            background-color: #FFF9F3;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(126, 155, 126, 0.05) 0%, transparent 55%),
-                radial-gradient(circle at 85% 30%, rgba(212, 180, 131, 0.05) 0%, transparent 55%);
+                radial-gradient(circle at 10% 20%, rgba(231, 126, 34, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(243, 156, 18, 0.05) 0%, transparent 40%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -45,15 +45,15 @@
             margin: 0 auto;
             background-color: var(--white);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border: 1px solid var(--secondary);
+            border: 1px solid rgba(231, 126, 34, 0.1);
         }
         
         header {
             text-align: center;
             padding: 40px 30px 30px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -66,7 +66,7 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             z-index: 0;
         }
@@ -80,30 +80,32 @@
             margin-bottom: 20px;
         }
         
-        .logo-icon {
-            font-size: 48px;
-            color: var(--white);
-            background-color: rgba(255, 255, 255, 0.2);
-            width: 80px;
-            height: 80px;
+        .restaurant-logo {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            margin-bottom: 20px;
+        }
+        
+        .restaurant-logo:hover {
+            transform: rotate(5deg) scale(1.05);
+            transition: transform 0.3s ease;
         }
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
+            font-size: 3.2em;
             margin-bottom: 10px;
             font-weight: 600;
             letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 15px;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.95);
@@ -113,35 +115,37 @@
             font-size: 1.1em;
             margin-bottom: 0;
             font-weight: 300;
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.2);
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .hours {
-            margin-top: 15px;
-            font-size: 1em;
-            background-color: rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.25);
             color: var(--white);
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
         
         .search-container {
             padding: 25px 30px;
             background-color: var(--light);
-            border-bottom: 1px solid var(--secondary);
+            border-bottom: 1px solid rgba(231, 126, 34, 0.15);
         }
         
         .search-input {
             width: 100%;
             padding: 16px 25px;
-            border: 1px solid #E0D9CC;
+            border: 2px solid rgba(231, 126, 34, 0.2);
             border-radius: 50px;
             font-size: 1.1em;
             background-color: var(--white);
@@ -149,7 +153,7 @@
             transition: all 0.3s ease;
             font-family: 'Quicksand', sans-serif;
             color: var(--dark);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000g" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%237E9B7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23D35400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
             background-repeat: no-repeat;
             background-position: 25px center;
             background-size: 20px;
@@ -158,13 +162,13 @@
         .search-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(126, 155, 126, 0.1);
+            box-shadow: 0 0 0 4px rgba(231, 126, 34, 0.15);
         }
         
         .menu-tabs {
             display: flex;
             background-color: var(--white);
-            border-bottom: 1px solid var(--secondary);
+            border-bottom: 1px solid rgba(231, 126, 34, 0.15);
             padding: 0;
             overflow-x: auto;
             scrollbar-width: none;
@@ -177,32 +181,34 @@
         .menu-tab {
             padding: 20px 25px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--gray);
-            border-bottom: 3px solid transparent;
+            border-bottom: 4px solid transparent;
             transition: all 0.3s ease;
             white-space: nowrap;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 1.1em;
             flex: 1;
             justify-content: center;
+            background-color: rgba(243, 156, 18, 0.03);
         }
         
         .menu-tab i {
             font-size: 1.2em;
+            color: var(--primary-light);
         }
         
         .menu-tab:hover {
             color: var(--primary);
-            background-color: rgba(126, 155, 126, 0.05);
+            background-color: rgba(231, 126, 34, 0.08);
         }
         
         .menu-tab.active {
             color: var(--primary);
-            border-bottom: 3px solid var(--primary);
-            background-color: rgba(126, 155, 126, 0.08);
+            border-bottom: 4px solid var(--accent);
+            background-color: rgba(231, 126, 34, 0.1);
         }
         
         .menu-sections {
@@ -213,47 +219,48 @@
             margin-bottom: 30px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
             background-color: var(--white);
-            border: 1px solid #F0EBE0;
+            border: 1px solid rgba(231, 126, 34, 0.1);
         }
         
         .menu-section:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(231, 126, 34, 0.2);
         }
         
         .section-header {
-            background-color: var(--light);
-            color: var(--dark);
-            padding: 20px 25px;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.1), rgba(243, 156, 18, 0.1));
+            color: var(--primary-dark);
+            padding: 22px 25px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s ease;
-            border-bottom: 1px solid #F0EBE0;
+            border-bottom: 1px solid rgba(231, 126, 34, 0.15);
         }
         
         .section-header:hover {
-            background-color: #F5F1E9;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.15), rgba(243, 156, 18, 0.15));
         }
         
         .section-header h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 600;
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             color: var(--primary-dark);
         }
         
         .section-header i {
             transition: transform 0.4s ease;
             font-size: 1.2em;
-            color: var(--primary);
+            color: var(--accent);
         }
         
         .section-content {
@@ -271,9 +278,9 @@
         .menu-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #EAE4D9;
+            margin-bottom: 22px;
+            padding-bottom: 22px;
+            border-bottom: 2px dashed rgba(231, 126, 34, 0.15);
             transition: all 0.3s ease;
             align-items: center;
             position: relative;
@@ -287,27 +294,33 @@
         
         .menu-item:hover {
             padding-left: 10px;
+            border-bottom-color: rgba(231, 126, 34, 0.3);
         }
         
         .item-left {
             flex: 2;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 15px;
         }
         
-        .item-marker {
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            margin-top: 10px;
+        .item-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.1), rgba(243, 156, 18, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4em;
             flex-shrink: 0;
+            border: 1px solid rgba(231, 126, 34, 0.2);
         }
         
         .item-name {
-            font-weight: 500;
-            font-size: 1.2em;
+            font-weight: 600;
+            font-size: 1.3em;
             position: relative;
             color: var(--dark);
             line-height: 1.5;
@@ -316,37 +329,47 @@
         .item-price {
             flex: 1;
             text-align: right;
-            font-weight: 600;
-            font-size: 1.3em;
-            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.4em;
+            color: var(--primary);
         }
         
         .price-tag {
-            background-color: rgba(126, 155, 126, 0.1);
-            color: var(--primary-dark);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 600;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.1), rgba(243, 156, 18, 0.1));
+            color: var(--primary);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
             transition: all 0.3s ease;
             display: inline-block;
-            border: 1px solid rgba(126, 155, 126, 0.2);
+            border: 1px solid rgba(231, 126, 34, 0.2);
+            box-shadow: 0 3px 10px rgba(231, 126, 34, 0.1);
         }
         
         .menu-item:hover .price-tag {
-            background-color: rgba(126, 155, 126, 0.15);
-            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.15), rgba(243, 156, 18, 0.15));
+            transform: scale(1.08);
+            box-shadow: 0 5px 15px rgba(231, 126, 34, 0.15);
+        }
+        
+        .price-tag::before {
+            content: "$";
+            font-size: 0.9em;
+            margin-right: 2px;
+            opacity: 0.8;
         }
         
         .note {
             font-style: italic;
-            color: var(--gray);
-            font-size: 0.95em;
+            color: var(--primary-dark);
+            font-size: 1em;
             text-align: center;
-            margin: 20px 0 10px;
-            padding: 15px;
-            background-color: var(--light);
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
+            margin: 25px 0 10px;
+            padding: 18px;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.08), rgba(243, 156, 18, 0.08));
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            font-weight: 500;
         }
         
         table {
@@ -354,36 +377,37 @@
             border-collapse: separate;
             border-spacing: 0;
             margin: 20px 0;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(231, 126, 34, 0.1);
         }
         
         th {
-            background-color: var(--primary-light);
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
             color: var(--white);
             text-align: left;
-            padding: 18px 15px;
+            padding: 20px 15px;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
         
         td {
-            padding: 15px;
-            border-bottom: 1px solid #F0EBE0;
+            padding: 16px 15px;
+            border-bottom: 1px solid rgba(231, 126, 34, 0.1);
             text-align: left;
-            font-size: 1.05em;
+            font-size: 1.1em;
         }
         
         td:nth-child(2), td:nth-child(3) {
             text-align: left;
             white-space: nowrap;
-            font-weight: 600;
-            color: var(--primary-dark);
+            font-weight: 700;
+            color: var(--primary);
         }
         
         tr:hover {
-            background-color: rgba(126, 155, 126, 0.03);
+            background-color: rgba(231, 126, 34, 0.04);
         }
         
         .two-column {
@@ -400,15 +424,15 @@
         
         .special-badge {
             position: absolute;
-            top: -10px;
+            top: -12px;
             right: 20px;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9em;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, var(--accent), #FF6B35);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95em;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
             z-index: 2;
             display: flex;
             align-items: center;
@@ -417,11 +441,11 @@
         
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: var(--light);
+            padding: 35px 30px;
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.05), rgba(243, 156, 18, 0.05));
             color: var(--dark);
             font-size: 1em;
-            border-top: 1px solid var(--secondary);
+            border-top: 1px solid rgba(231, 126, 34, 0.15);
         }
         
         .footer-content {
@@ -429,59 +453,61 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 30px;
         }
         
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--primary);
         }
         
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 18px;
             margin-top: 15px;
         }
         
         .social-icon {
-            color: var(--primary-dark);
-            font-size: 1.5em;
+            color: var(--primary);
+            font-size: 1.6em;
             transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(126, 155, 126, 0.1);
+            background-color: rgba(231, 126, 34, 0.1);
+            border: 1px solid rgba(231, 126, 34, 0.2);
         }
         
         .social-icon:hover {
             color: var(--white);
-            background-color: var(--primary);
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(231, 126, 34, 0.25);
         }
         
         .contact-info {
             margin-top: 15px;
-            font-size: 0.95em;
-            color: var(--gray);
+            font-size: 1em;
+            color: var(--primary-dark);
             line-height: 1.8;
         }
         
         .contact-info i {
-            color: var(--primary);
-            margin-right: 10px;
+            color: var(--accent);
+            margin-right: 12px;
             font-size: 1.1em;
         }
         
         @media (max-width: 900px) {
             .two-column {
                 flex-direction: column;
-                gap: 20px;
+                gap: 25px;
             }
             
             .column {
@@ -503,27 +529,28 @@
             }
             
             .menu-tab {
-                padding: 15px;
+                padding: 16px 20px;
                 font-size: 1em;
                 flex: 1 0 50%;
                 min-width: 140px;
             }
             
             h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             
             h2 {
-                font-size: 1.5em;
+                font-size: 1.7em;
             }
             
             .menu-sections {
-                padding: 20px;
+                padding: 25px;
             }
             
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 25px;
             }
             
             table {
@@ -533,13 +560,19 @@
             }
             
             td, th {
-                min-width: 120px;
+                min-width: 130px;
+            }
+            
+            .item-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
             }
         }
         
         /* Animaciones suaves */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
@@ -554,20 +587,33 @@
         
         /* Estilos para sección destacada */
         .featured-section {
-            border: 2px solid var(--primary-light);
-            box-shadow: 0 8px 25px rgba(126, 155, 126, 0.1);
+            border: 2px solid rgba(231, 126, 34, 0.3);
+            box-shadow: 0 12px 30px rgba(231, 126, 34, 0.15);
         }
         
         .featured-section .section-header {
-            background-color: rgba(126, 155, 126, 0.1);
+            background: linear-gradient(135deg, rgba(231, 126, 34, 0.15), rgba(243, 156, 18, 0.15));
         }
         
-        /* Efecto sutil para precios */
-        .price-tag::before {
-            content: "$";
-            font-size: 0.9em;
-            margin-right: 2px;
-            opacity: 0.8;
+        /* Decoración sutil para nombres */
+        .item-name::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+            transition: width 0.3s ease;
+        }
+        
+        .menu-item:hover .item-name::after {
+            width: 60px;
+        }
+        
+        /* Efecto de brillo sutil en headers */
+        .section-header h3 i {
+            filter: drop-shadow(0 2px 3px rgba(231, 126, 34, 0.3));
         }
     </style>
 </head>
@@ -576,12 +622,11 @@
         <header>
             <div class="header-decoration"></div>
             <div class="logo-container">
-                <div class="logo-container" style="margin-bottom: 15px;">
-    <img src="image.png" alt="Logo Lunch Juanito" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255, 255, 255, 0.3);">
-</div>
+                <img src="image.png" class="restaurant-logo" alt="Logo Lunch Juanito">
+            </div>
             <h1>Lunch Juanito</h1>
             <h2>100% Natural</h2>
-            <p class="header-subtitle">SABORES NATURALES, INGREDIENTES FRESCOS</p>
+            <p class="header-subtitle">SABORES AUTÉNTICOS • INGREDIENTES FRESCOS</p>
             <div class="hours">
                 <i class="fas fa-clock"></i> DESAYUNOS DE 8:00 AM A 2:00 PM
             </div>
@@ -593,7 +638,7 @@
         
         <div class="menu-tabs">
             <div class="menu-tab active" data-tab="all">
-                <i class="fas fa-star"></i> Todo
+                <i class="fas fa-fire"></i> Todo
             </div>
             <div class="menu-tab" data-tab="desayunos">
                 <i class="fas fa-sun"></i> Desayunos
@@ -622,7 +667,9 @@
                 <div class="section-content show">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
                             <div class="item-name">Chilaquiles Verdes con Pollo</div>
                         </div>
                         <div class="item-price">
@@ -632,7 +679,9 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
                             <div class="item-name">Enchiladas Verdes Gratinadas</div>
                         </div>
                         <div class="item-price">
@@ -642,7 +691,9 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-bacon"></i>
+                            </div>
                             <div class="item-name">Torta Cubana Especial</div>
                         </div>
                         <div class="item-price">
@@ -661,7 +712,9 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
                             <div class="item-name">Divorciados</div>
                         </div>
                         <div class="item-price">
@@ -671,7 +724,9 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-utensil-spoon"></i>
+                            </div>
                             <div class="item-name">Rancheros</div>
                         </div>
                         <div class="item-price">
@@ -681,8 +736,34 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Con Chorizo</div>
+                            <div class="item-icon">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                            <div class="item-name">Con jamón</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">70</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <div class="item-name">Con salchicha</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">70</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">Con chorizo</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">80</span>
@@ -691,8 +772,10 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">A la Mexicana</div>
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">A la mexicana</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">80</span>
@@ -712,7 +795,9 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-mushroom"></i>
+                            </div>
                             <div class="item-name">Champiñones</div>
                         </div>
                         <div class="item-price">
@@ -722,7 +807,21 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">Chorizo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">85</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
                             <div class="item-name">Espinacas</div>
                         </div>
                         <div class="item-price">
@@ -732,8 +831,22 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-bacon"></i>
+                            </div>
                             <div class="item-name">Jamón</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">80</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <div class="item-name">Salchicha</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">80</span>
@@ -751,8 +864,10 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Con Milanesa</div>
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Con milanesa</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">75</span>
@@ -761,8 +876,10 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Con Chorizo</div>
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">Con chorizo</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">75</span>
@@ -771,7 +888,33 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                            <div class="item-name">Con jamón</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">70</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
+                            <div class="item-name">Con salchicha</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">70</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
                             <div class="item-name">Hawaiana</div>
                         </div>
                         <div class="item-price">
@@ -790,8 +933,10 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Cubana Especial</div>
+                            <div class="item-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="item-name">Cubana (jamón, salchicha, milanesa, longaniza, queso blanco y amarillo)</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">95</span>
@@ -800,7 +945,9 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-hotdog"></i>
+                            </div>
                             <div class="item-name">Salchicha</div>
                         </div>
                         <div class="item-price">
@@ -810,8 +957,34 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Milanesa con Salsa de Chicharrón</div>
+                            <div class="item-icon">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                            <div class="item-name">Jamón con queso amarillo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">50</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-egg"></i>
+                            </div>
+                            <div class="item-name">Huevo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">60</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Milanesa con salsa de chicharrón</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">70</span>
@@ -823,14 +996,16 @@
             <!-- Sandwiches -->
             <div class="menu-section" data-category="sandwiches">
                 <div class="section-header" onclick="toggleSection(this)">
-                    <h3><i class="fas fa-cheese"></i> SANDWICHES</h3>
+                    <h3><i class="fas fa-cheese"></i> SANDWICH</h3>
                     <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="section-content">
+                <div class="section-content show">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Jamón de Pavo</div>
+                            <div class="item-icon">
+                                <i class="fas fa-dove"></i>
+                            </div>
+                            <div class="item-name">Jamón de Pavo, Queso Panela, lechuga y jitomate</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">50</span>
@@ -839,8 +1014,22 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Club Sandwich</div>
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Ensalada Rusa, pollo deshebrado, verduras y mayonesa</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">55</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="item-name">Club sandwich (jamón de pavo, queso amarillo, ensalada de pollo, papas a la francesa)</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">120</span>
@@ -858,8 +1047,10 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Pechuga de Pavo</div>
+                            <div class="item-icon">
+                                <i class="fas fa-dove"></i>
+                            </div>
+                            <div class="item-name">Pechuga de pavo, queso panela, lechuga, pepino y germen de alfalfa</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">75</span>
@@ -868,11 +1059,174 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Pechuga de Pollo Asada</div>
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Pechuga de pollo asada, lechuga, jitomate, pepino y zanahoria</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">80</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <div class="item-name">Sincronizada. 3 piezas (Queso, manchego y jamón)</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">45</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-cow"></i>
+                            </div>
+                            <div class="item-name">Bistec de res asado (lechuga, aguacate y germen de alfalfa)</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">85</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chilaquiles Verdes -->
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3><i class="fas fa-pepper-hot"></i> CHILAQUILES VERDES</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Con pollo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">75</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-egg"></i>
+                            </div>
+                            <div class="item-name">Con huevo estrellado</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">75</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Con milanesa</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">90</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">Con chorizo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">80</span>
+                        </div>
+                    </div>
+                    
+                    <p class="note"><i class="fas fa-plus-circle"></i> INGREDIENTE EXTRA $15</p>
+                </div>
+            </div>
+            
+            <!-- Enchiladas -->
+            <div class="menu-section" data-category="desayunos">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3><i class="fas fa-pepper-hot"></i> ENCHILADAS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Verdes c/ pollo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">75</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="item-name">Enfrijoladas con pollo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">75</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-pepper-hot"></i>
+                            </div>
+                            <div class="item-name">Enfrijoladas con chorizo</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">80</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <div class="item-name">Verdes gratinadas (manchego, con pollo o chorizo)</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ensaladas -->
+            <div class="menu-section" data-category="otros">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h3><i class="fas fa-leaf"></i> ENSALADAS</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="section-content">
+                    <div class="menu-item">
+                        <div class="item-left">
+                            <div class="item-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <div class="item-name">Lechuga, zanahoria, pepino y manzana (con proteína: pechuga de pollo asada)</div>
+                        </div>
+                        <div class="item-price">
+                            <span class="price-tag">120</span>
                         </div>
                     </div>
                 </div>
@@ -895,32 +1249,140 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Naranja Recién Exprimida</td>
+                                <td>Naranja</td>
                                 <td>40</td>
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>Zanahoria Fresca</td>
+                                <td>Zanahoria</td>
                                 <td>40</td>
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>Betabel con Zanahoria</td>
+                                <td>Betabel/Zanahoria</td>
                                 <td>40</td>
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>Detox (Nopal, Apio, Perejil)</td>
+                                <td>Zanahoria/Naranja</td>
                                 <td>40</td>
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>Energía (Naranja, Piña, Avena)</td>
+                                <td>Zanahoria/Betabel/Naranja</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Fresa</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Avena/Jengibre</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Piña/Avena/Fresa y Arandanos</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Manzana/Nuez/Avena y Almendras</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Naranja/Nopal/Apio/Perejil/Linaza/Piña</td>
                                 <td>40</td>
                                 <td>50</td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            
+            <!-- Dos columnas: Esquimos y Refrescos -->
+            <div class="two-column">
+                <div class="column">
+                    <div class="menu-section" data-category="bebidas">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3><i class="fas fa-ice-cream"></i> ESQUIMOS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-cookie-bite"></i>
+                                    </div>
+                                    <div class="item-name">Rompope</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">50</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="item-name">Nuez</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">50</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-candy-cane"></i>
+                                    </div>
+                                    <div class="item-name">De chocolate</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">50</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-coconut"></i>
+                                    </div>
+                                    <div class="item-name">Coco</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">50</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="menu-section" data-category="bebidas">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3><i class="fas fa-wine-bottle"></i> REFRESCOS</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-wine-bottle"></i>
+                                    </div>
+                                    <div class="item-name">Refrescos</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -935,8 +1397,10 @@
                         <div class="section-content">
                             <div class="menu-item">
                                 <div class="item-left">
-                                    <div class="item-marker"></div>
-                                    <div class="item-name">Fresa con Leche</div>
+                                    <div class="item-icon">
+                                        <i class="fas fa-strawberry"></i>
+                                    </div>
+                                    <div class="item-name">Fresa</div>
                                 </div>
                                 <div class="item-price">
                                     <span class="price-tag">45</span>
@@ -945,8 +1409,10 @@
                             
                             <div class="menu-item">
                                 <div class="item-left">
-                                    <div class="item-marker"></div>
-                                    <div class="item-name">Manzana con Avena</div>
+                                    <div class="item-icon">
+                                        <i class="fas fa-apple-alt"></i>
+                                    </div>
+                                    <div class="item-name">Manzana</div>
                                 </div>
                                 <div class="item-price">
                                     <span class="price-tag">45</span>
@@ -955,8 +1421,34 @@
                             
                             <div class="menu-item">
                                 <div class="item-left">
-                                    <div class="item-marker"></div>
-                                    <div class="item-name">Chocomilk Clásico</div>
+                                    <div class="item-icon">
+                                        <i class="fas fa-banana"></i>
+                                    </div>
+                                    <div class="item-name">Plátano</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">45</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-candy-cane"></i>
+                                    </div>
+                                    <div class="item-name">Chocomilk</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">45</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-fruit"></i>
+                                    </div>
+                                    <div class="item-name">Papaya</div>
                                 </div>
                                 <div class="item-price">
                                     <span class="price-tag">45</span>
@@ -969,27 +1461,43 @@
                 <div class="column">
                     <div class="menu-section" data-category="otros">
                         <div class="section-header" onclick="toggleSection(this)">
-                            <h3><i class="fas fa-leaf"></i> OPCIONES</h3>
+                            <h3><i class="fas fa-bread-slice"></i> OTROS</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="section-content">
                             <div class="menu-item">
                                 <div class="item-left">
-                                    <div class="item-marker"></div>
-                                    <div class="item-name">Ensalada con Pollo Asado</div>
+                                    <div class="item-icon">
+                                        <i class="fas fa-bread-slice"></i>
+                                    </div>
+                                    <div class="item-name">Bisquet con mantequilla y mermelada de fresa</div>
                                 </div>
                                 <div class="item-price">
-                                    <span class="price-tag">120</span>
+                                    <span class="price-tag">25</span>
                                 </div>
                             </div>
                             
                             <div class="menu-item">
                                 <div class="item-left">
-                                    <div class="item-marker"></div>
-                                    <div class="item-name">Plato con Fruta Fresca</div>
+                                    <div class="item-icon">
+                                        <i class="fas fa-apple-alt"></i>
+                                    </div>
+                                    <div class="item-name">Plato con fruta</div>
                                 </div>
                                 <div class="item-price">
                                     <span class="price-tag">35</span>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="item-left">
+                                    <div class="item-icon">
+                                        <i class="fas fa-cookie-bite"></i>
+                                    </div>
+                                    <div class="item-name">Pan dulce</div>
+                                </div>
+                                <div class="item-price">
+                                    <span class="price-tag">15</span>
                                 </div>
                             </div>
                         </div>
@@ -1006,7 +1514,9 @@
                 <div class="section-content">
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
+                            <div class="item-icon">
+                                <i class="fas fa-mug-hot"></i>
+                            </div>
                             <div class="item-name">Americano</div>
                         </div>
                         <div class="item-price">
@@ -1016,8 +1526,10 @@
                     
                     <div class="menu-item">
                         <div class="item-left">
-                            <div class="item-marker"></div>
-                            <div class="item-name">Con Leche</div>
+                            <div class="item-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="item-name">Con leche</div>
                         </div>
                         <div class="item-price">
                             <span class="price-tag">40</span>
@@ -1032,9 +1544,9 @@
                 <div>
                     <div class="footer-logo">Lunch Juanito</div>
                     <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> C. Fundiciones, Barrio de Fundiciones, 40200 Taxco de Alarcón, Gro.</p>
-                    <p><i class="fas fa-phone"></i>Tel: 762- 125- 7560</p>
-                    <p><i class="fas fa-clock"></i>Lunes a Domingo: 8:00 AM - 2:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> C. Fundiciones, Barrio de Fundiciones, 40200 Taxco de Alarcón, Gro.</p>
+                        <p><i class="fas fa-phone"></i> Tel: 762-125-7560</p>
+                        <p><i class="fas fa-clock"></i> Lunes a Domingo: 8:00 AM - 2:00 PM</p>
                     </div>
                 </div>
                 
@@ -1043,14 +1555,13 @@
                         <a href="https://www.facebook.com/share/12LnGM5iPvA/" class="social-icon" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        </a>
                         <a href="https://www.google.com/maps/place/Luch+Juanito/@18.556451,-99.6023701,715m/data=!3m1!1e3!4m6!3m5!1s0x85cc4b001b53792b:0x6b73793bfee49044!8m2!3d18.5564575!4d-99.6023737!16s%2Fg%2F11w1k5twr7?hl=es&entry=ttu&g_ep=EgoyMDI1MDgxSiAwIKXMDSoASAFQAw%3D%3D" class="social-icon" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-map-marker-alt"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <p style="margin-top: 20px; color: var(--gray); font-size: 0.9em;">Lunch Juanito 100% Natural - Donde lo natural sabe mejor</p>
+            <p style="margin-top: 20px; color: var(--primary-dark); font-size: 0.95em; opacity: 0.8;">Lunch Juanito 100% Natural - Donde lo natural sabe mejor</p>
         </footer>
     </div>
     
